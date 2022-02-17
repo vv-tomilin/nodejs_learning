@@ -1,7 +1,10 @@
+import JoinBlock from './components/JoinBlock';
+
 function App() {
+
   return (
     <div>
-      Test
+      <JoinBlock />
     </div>
   );
 }

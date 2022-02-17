@@ -3,7 +3,11 @@ const socket = require('socket.io');
 
 const app = express();
 const server = require('http').Server(app);
-const io = socket(server);
+const io = socket(server, {
+  cors: {
+    origin: "http://localhost:3000",
+  },
+});
 
 const rooms = new Map();
 
@@ -14,7 +18,7 @@ app.get('/users', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-  console.log('socket connection', socket);
+  console.log('socket connection');
 });
 
 server.listen(9999, (error) => {
